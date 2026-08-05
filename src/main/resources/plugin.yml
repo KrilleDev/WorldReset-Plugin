@@ -1,0 +1,22 @@
+name: ${project.name}
+version: '${project.version}'
+main: com.example.worldreset.WorldResetPlugin
+api-version: '1.21'
+author: WorldReset
+description: Setzt Welten sicher zurueck und erstellt sie mit neuem Seed neu.
+
+commands:
+  reset:
+    description: Setzt die Standardwelt, eine angegebene Welt oder den gesamten Server zurueck.
+    usage: /reset [Weltname|all|confirm]
+
+permissions:
+  worldreset.reset:
+    description: Erlaubt das Zuruecksetzen der Standardwelt (/reset).
+    default: op
+  worldreset.reset.other:
+    description: Erlaubt das Zuruecksetzen einer beliebigen angegebenen Welt (/reset <welt>).
+    default: op
+  worldreset.reset.all:
+    description: Erlaubt das komplette Zuruecksetzen ALLER Welten inkl. Server-Neustart (/reset all).
+    default: op

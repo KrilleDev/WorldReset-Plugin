@@ -1,0 +1,41 @@
+# WorldReset - Konfiguration
+
+# Name der Standardwelt, die bei "/reset" (ohne Argumente) zurueckgesetzt wird.
+default-world: world
+
+# Welt, in die Spieler teleportiert werden, waehrend ihre Welt zurueckgesetzt wird
+# (bei "/reset" bzw. "/reset <welt>"; nicht relevant fuer "/reset all").
+# Existiert diese Welt nicht (oder ist es die betroffene Welt selbst), wird automatisch
+# eine andere geladene Welt oder als letzter Ausweg eine temporaere Welt genutzt.
+teleport-safe-world: lobby
+
+# Wenn true, wird die Welt vor dem Zuruecksetzen noch einmal gespeichert.
+# Das ist meist unnoetig, da die Welt sowieso vollstaendig geloescht wird.
+auto-save-before-reset: false
+
+# Konsolenbefehl, der fuer "/reset all" den Server-Neustart ausloest.
+# "restart" ist der in Paper/Spigot eingebaute Neustart-Befehl (nutzt das in
+# spigot.yml konfigurierte Restart-Skript, z.B. start.sh, falls vorhanden -
+# ansonsten faehrt er den Server sauber herunter).
+restart-command: restart
+
+# --------------------------------------------------------------------------
+# Seed-Verwaltung
+# --------------------------------------------------------------------------
+# Optional: fester Seed pro Welt. Ist fuer eine Welt hier ein Wert eingetragen,
+# wird IMMER dieser Seed verwendet (z.B. fuer reproduzierbare Test-/Event-Welten).
+# Ist fuer eine Welt KEIN Wert eingetragen, wird bei jedem Reset automatisch ein
+# neuer, garantiert vom vorherigen abweichender, zufaelliger Seed erzeugt.
+#
+# Beispiel:
+# seeds:
+#   fixed:
+#     world: 123456789
+#     survival: -987654321
+seeds:
+  fixed: {}
+
+  # Wird automatisch vom Plugin gepflegt (zuletzt tatsaechlich verwendeter Seed
+  # je Welt) - hier nichts manuell eintragen.
+  last-used: {}
+

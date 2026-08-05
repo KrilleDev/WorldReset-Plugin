@@ -1,0 +1,38 @@
+# WorldReset - Nachrichten
+# Farbcodes mit & werden automatisch umgewandelt.
+# Platzhalter: %world% = Weltname, %seed% = Seed, %error% = Fehlermeldung
+
+prefix: "&8[&bWorldReset&8]&r "
+
+no-permission: "&cDu hast keine Berechtigung fuer diesen Befehl."
+usage: "&cVerwendung: &f/reset &7[Weltname|all|confirm]"
+
+world-not-found: "&cDie Welt &f%world% &cwurde weder geladen noch auf der Festplatte gefunden."
+already-resetting: "&cEs laeuft bereits ein Reset-Vorgang. Bitte warte, bis dieser abgeschlossen ist."
+
+confirm-required: "&eMoechtest du die Welt &f%world% &ewirklich zuruecksetzen? Bestaetige mit &a/reset confirm &e(laeuft in 30 Sekunden ab)."
+confirm-required-cascade: "&eMoechtest du die Welt &f%world% &esamt zugehoerigem Nether und End wirklich zuruecksetzen? Alle drei erhalten einen neuen, gemeinsamen Seed. Bestaetige mit &a/reset confirm &e(laeuft in 30 Sekunden ab)."
+confirm-required-all: "&c&lACHTUNG: &cDadurch werden ALLE Spieler vom Server geworfen, ALLE Welten unwiderruflich geloescht und der Server startet neu! Bestaetige mit &a/reset confirm &c(laeuft in 30 Sekunden ab)."
+no-pending-confirmation: "&cEs gibt keine ausstehende Reset-Anfrage oder sie ist abgelaufen. Starte den Vorgang erneut."
+
+teleported-away: "&eDu wurdest aus Sicherheitsgruenden in eine andere Welt teleportiert, da deine Welt zurueckgesetzt wird."
+teleporting-players: "&7Spieler werden in die neue Welt teleportiert..."
+
+cascade-start: "&7Starte kompletten Reset von &f%world% &7inkl. Nether und End..."
+
+
+progress-saving: "&7Welt wird gespeichert..."
+progress-unloading: "&7Welt wird entladen..."
+progress-deleting: "&7Welt wird geloescht..."
+progress-creating: "&7Neue Welt wird erstellt..."
+progress-done: "&aFertig! Die Welt &f%world% &awurde erfolgreich zurueckgesetzt."
+
+seed-info: "&7Neuer Seed: &f%seed%"
+
+# Nachrichten fuer "/reset all"
+kick-message-all-reset: "&cDer Server wird komplett zurueckgesetzt.\n&7Bitte versuche es in Kuerze erneut."
+broadcast-all-start: "&c&lServer-Reset: &cAlle Welten werden geloescht, der Server startet danach neu..."
+progress-deleting-all: "&7Alle Weltordner werden geloescht..."
+progress-restarting: "&c&lServer wird jetzt neu gestartet..."
+
+error-generic: "&cBeim Zuruecksetzen der Welt ist ein Fehler aufgetreten: &f%error%"
