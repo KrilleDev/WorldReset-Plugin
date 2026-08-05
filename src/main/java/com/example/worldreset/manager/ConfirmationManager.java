@@ -8,19 +8,10 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Verwaltet ausstehende Reset-Bestaetigungen ("/reset confirm").
- * Jede Bestaetigung ist an den ausfuehrenden Sender (Spieler oder Konsole)
- * gebunden und laeuft nach 30 Sekunden automatisch ab.
- *
- * Der gespeicherte "worldName" kann auch ein Sonderwert sein
- * (siehe ResetCommand#ALL_WORLDS_TOKEN) fuer den kompletten Server-Reset.
- */
 public class ConfirmationManager {
 
     private static final long CONFIRM_TIMEOUT_MILLIS = 30_000L;
 
-    /** Fester Platzhalter-Schluessel fuer die Konsole, die keine UUID besitzt. */
     private static final UUID CONSOLE_KEY = new UUID(0L, 0L);
 
     private final Map<UUID, PendingReset> pendingResets = new ConcurrentHashMap<>();
@@ -29,9 +20,6 @@ public class ConfirmationManager {
         pendingResets.put(keyOf(sender), new PendingReset(worldName, System.currentTimeMillis() + CONFIRM_TIMEOUT_MILLIS));
     }
 
-    /**
-     * Entnimmt und entfernt die ausstehende Bestaetigung, sofern vorhanden und nicht abgelaufen.
-     */
     public Optional<String> consumePending(CommandSender sender) {
         PendingReset pending = pendingResets.remove(keyOf(sender));
         if (pending == null || pending.isExpired()) {
