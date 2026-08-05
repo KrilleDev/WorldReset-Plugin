@@ -8,14 +8,6 @@ import com.example.worldreset.service.WorldResetService;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
-/**
- * Haupteinstiegspunkt des WorldReset-Plugins.
- *
- * Das Plugin erlaubt es, Welten zur Laufzeit sicher zu entladen, vollstaendig
- * von der Festplatte zu loeschen und anschliessend mit einem neuen zufaelligen
- * Seed neu zu erstellen - ganz ohne Server-Neustart (ausser bei "/reset all",
- * das einen kontrollierten Neustart bewusst mit einschliesst).
- */
 public final class WorldResetPlugin extends JavaPlugin {
 
     private MessageManager messageManager;
