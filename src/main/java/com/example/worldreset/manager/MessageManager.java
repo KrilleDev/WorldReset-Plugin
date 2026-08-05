@@ -11,10 +11,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-/**
- * Laedt und verwaltet die konfigurierbaren Chat-Nachrichten aus messages.yml,
- * inklusive Praefix und Platzhalter-Ersetzung.
- */
 public class MessageManager {
 
     private final JavaPlugin plugin;
@@ -34,8 +30,6 @@ public class MessageManager {
 
         config = YamlConfiguration.loadConfiguration(file);
 
-        // Fallback-Werte aus dem im JAR gebuendelten messages.yml, falls in der
-        // Datei des Nutzers Schluessel fehlen (z.B. nach einem Plugin-Update).
         try (InputStream defStream = plugin.getResource("messages.yml")) {
             if (defStream != null) {
                 YamlConfiguration defaults = YamlConfiguration.loadConfiguration(
@@ -43,7 +37,6 @@ public class MessageManager {
                 config.setDefaults(defaults);
             }
         } catch (Exception ignored) {
-            // Kein kritischer Fehler - Standardwerte sind optional.
         }
 
         prefix = color(config.getString("prefix", ""));
@@ -61,10 +54,6 @@ public class MessageManager {
         return config.getString(key, key);
     }
 
-    /**
-     * Liefert eine eingefaerbte Nachricht ohne Praefix, mit optionalen
-     * Platzhalter-Paaren (z.B. "%world%", "world").
-     */
     public String format(String key, String... placeholders) {
         String message = color(raw(key));
         if (placeholders != null) {
@@ -79,16 +68,10 @@ public class MessageManager {
         return prefix + format(key, placeholders);
     }
 
-    /**
-     * Sendet eine Nachricht inklusive Praefix an den Empfaenger.
-     */
     public void send(CommandSender sender, String key, String... placeholders) {
         sender.sendMessage(formatWithPrefix(key, placeholders));
     }
 
-    /**
-     * Sendet eine Nachricht inklusive Praefix an ALLE Online-Spieler und die Konsole.
-     */
     public void broadcast(String key, String... placeholders) {
         String message = formatWithPrefix(key, placeholders);
         plugin.getServer().getConsoleSender().sendMessage(message);
