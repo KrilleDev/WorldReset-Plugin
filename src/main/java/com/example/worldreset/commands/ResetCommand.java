@@ -16,12 +16,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-/**
- * Implementiert "/reset", "/reset all", "/reset confirm" und "/reset &lt;welt&gt;".
- */
+
 public class ResetCommand implements CommandExecutor, TabCompleter {
 
-    /** Interner Sonderwert fuer eine ausstehende Bestaetigung des Komplett-Resets. */
     public static final String ALL_WORLDS_TOKEN = "__ALL__";
 
     private final WorldResetPlugin plugin;
@@ -39,22 +36,18 @@ public class ResetCommand implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        // /reset  -> Standardwelt zuruecksetzen (nach Bestaetigung)
         if (args.length == 0) {
             return handleDefaultWorldRequest(sender);
         }
 
-        // /reset confirm -> ausstehende Bestaetigung ausfuehren
         if (args.length == 1 && args[0].equalsIgnoreCase("confirm")) {
             return handleConfirm(sender);
         }
 
-        // /reset all -> KOMPLETTEN Server-Reset anfordern (nach Bestaetigung)
         if (args.length == 1 && args[0].equalsIgnoreCase("all")) {
             return handleAllWorldsRequest(sender);
         }
 
-        // /reset <welt> -> angegebene Welt zuruecksetzen (nach Bestaetigung)
         if (args.length == 1) {
             return handleOtherWorldRequest(sender, args[0]);
         }
@@ -144,7 +137,6 @@ public class ResetCommand implements CommandExecutor, TabCompleter {
         String defaultWorld = plugin.getConfig().getString("default-world", "world");
         boolean isDefaultWorld = worldName.equalsIgnoreCase(defaultWorld);
 
-        // Berechtigung erneut pruefen, falls sie zwischen Anfrage und Bestaetigung entzogen wurde.
         String requiredPermission = isDefaultWorld ? "worldreset.reset" : "worldreset.reset.other";
         if (!sender.hasPermission(requiredPermission)) {
             messages.send(sender, "no-permission");
