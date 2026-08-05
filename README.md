@@ -1,53 +1,71 @@
 # 🌍 WorldReset
 
-> A lightweight and configurable Minecraft Paper plugin that automatically resets worlds while keeping your server clean and fresh.
+A simple and powerful Minecraft plugin that allows you to reset worlds with ease.
 
-![Minecraft](https://img.shields.io/badge/Minecraft-1.21+-brightgreen)
-![Paper](https://img.shields.io/badge/Paper-Supported-blue)
-![Java](https://img.shields.io/badge/Java-21+-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
+WorldReset safely removes and regenerates worlds, providing a fresh experience with a completely new seed every time.
 
 ---
 
 ## ✨ Features
 
-- 🌍 Reset any world with a single command
-- 🌱 Generates a completely new random seed on every reset
-- 💾 Automatic world backup (optional)
-- ⚡ Fast and safe world deletion
-- 🔄 Automatically recreates the world
-- 📦 Lightweight with minimal performance impact
-- ⚙️ Easy configuration
-- 🔐 Permission support
+✅ Safely reset worlds  
+✅ Generate a new random seed after every reset  
+✅ Simple and easy-to-use commands  
+✅ Lightweight and optimized performance  
+✅ Permission support  
+✅ Supports Paper-based servers  
+✅ Fully configurable  
 
 ---
 
-## 📥 Installation
+## 📦 Installation
 
-1. Download the latest release.
-2. Place `WorldReset.jar` into your server's `plugins` folder.
-3. Restart the server.
-4. Configure the plugin in the generated config files.
+1. Download the latest `WorldReset.jar`
+2. Place the file into your server's `plugins` folder
+3. Restart your server
+4. Configure the plugin
+5. Enjoy fresh worlds!
 
 ---
 
-## 📖 Commands
+## 📋 Requirements
+
+- Minecraft **1.21+**
+- Paper / Purpur server
+- Java **21+**
+
+---
+
+## 🛠 Commands
 
 | Command | Description |
-|---------|-------------|
-| `/worldreset <world>` | Resets the specified world |
-| `/worldreset reload` | Reloads the configuration |
-| `/worldreset confirm` | Confirms a pending reset |
+|---|---|
+| `/worldreset <world>` | Reset a specific world |
+| `/worldreset reload` | Reload the plugin configuration |
 
 ---
 
-## 🔑 Permissions
+## 🔐 Permissions
 
 | Permission | Description |
-|------------|-------------|
-| `worldreset.admin` | Access to all commands |
-| `worldreset.reset` | Reset worlds |
-| `worldreset.reload` | Reload the plugin |
+|---|---|
+| `worldreset.admin` | Grants full access to WorldReset |
+| `worldreset.reset` | Allows resetting worlds |
+| `worldreset.reload` | Allows reloading the configuration |
+
+---
+
+## 🌱 How World Reset Works
+
+When resetting a world, WorldReset:
+
+1. Safely unloads the world
+2. Removes the old world data
+3. Creates a new world
+4. Generates a new random seed
+5. Loads the fresh world automatically
+
+Your server gets a completely new world without any manual setup.
 
 ---
 
@@ -56,9 +74,6 @@
 Example:
 
 ```yaml
-backup:
-  enabled: true
-
 seed:
   random: true
 
@@ -68,67 +83,24 @@ messages:
 
 ---
 
-## 🔄 How it works
+## 🔮 Planned Features
 
-When a world reset is started the plugin:
-
-1. Saves the world
-2. Unloads it safely
-3. Creates a backup (optional)
-4. Deletes the world files
-5. Generates a new world with a **new random seed**
-6. Loads the new world automatically
-7. Teleports players if configured
+- Reset countdown
+- PlaceholderAPI support
+- Discord webhook notifications
 
 ---
 
-## ✅ Supported Versions
+## 💬 Support
 
-- Paper 1.21+
-- Purpur *(should work)*
-- Folia *(experimental)*
+Need help or found a bug?
 
----
+Open a Ticket on the Discord Server:
 
-## 🛠️ Building
-
-```bash
-git clone https://github.com/KrilleDev/WorldReset-Plugin.git
-cd WorldReset-Plugin
-./gradlew build
-```
-
-The compiled jar will be located in:
-
-```
-build/libs/
-```
+https://discord.gg/VneM36E7Gp
 
 ---
 
-## 📌 Roadmap
-
-- [ ] GUI
-- [ ] Scheduled resets
-- [ ] PlaceholderAPI support
-- [ ] Multi-world support
-- [ ] Async backups
-- [ ] Webhook logging
-
----
-
-## ❤️ Contributing
-
-Pull Requests are welcome!
-
-If you find a bug or have an idea, feel free to open an Issue.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
+## Credits
 
 Made by **KrilleDev**
